@@ -2632,63 +2632,13 @@ Inside every category the easiest recipes are at the top and the hardest at the 
 <li>This is a base recipe: once cultured, you can flavour and shape it however you like.</li>
 </ul>
 </section>
-<section class="recipe" id="r-follow-up-prompt"><h1>🤖 Follow-up prompt for the next Claude session</h1>
+<section class="recipe" id="r-follow-up-prompt"><h1>🤖 Continue in a new Claude session</h1>
 <p><a href="#home" class="back">← Back to all recipes</a></p>
-<p>Copy everything in the box below and paste it into a new Claude Code session opened in <code>/home/elad/repos/cld/phone_fix</code>.</p>
-<pre><code class="language-text">I'm continuing work on my recipe collection in /home/elad/repos/cld/phone_fix.
-
-WHAT EXISTS
-- me-recipes.md: the master list. It's sorted Sweet / Non-sweet → subcategories → easiest to hardest.
-  Each row has: Level, Recipe (linked to its own file), By (creator), Notes, Original (reel link).
-  At the top: &quot;Start here&quot; (my 5 protein desserts, easiest first) and my shopping list for <bdi>טעם לחיים</bdi> (a vegan store near me).
-- recipes/: 93 files, one per recipe (&lt;slug&gt;.md), plus this file (follow-up-prompt.md). Each has: back-link ../me-recipes.md, an info table
-  (Level, By, Original, Recipe source, Protein, Makes/time, Language), then ## Ingredients, ## Instructions, optional ## Notes.
-- Markers. Level: 🟢 Easy, 🟡 Medium, 🔴 Hard, ⛔ Project, ❔ unknown.
-  Recipe file: ✅ full (64), 🟨 partial (15), 📹 video only (14). 💪 = protein. ⭐ = a reel I tagged &quot;<bdi>סניקרס</bdi>&quot;.
-  ⚠️ (row + a banner at the top of the file) = the written recipe isn't the creator's (from another source, or a guessed match). Use it for every &quot;Similar recipe&quot; you add.
-  🎬 in a file's Recipe source = read from the video itself (on-screen text + voice-over). Only 1 ⚠️ is left: Vegan Japanese Cheesecake (its reel needs a login to download).
-  In recipe files, &quot;→ 🌱 X&quot; after a non-vegan ingredient = vegan swap (Claude's suggestion, not the creator's). Add these for new recipes too.
-- There is NO generator script any more. Edit the .md files directly, and keep the main list and the recipe files in sync.
-
-WHERE THE DATA CAME FROM
-- My WhatsApp group &quot;Me - recipes&quot; on my Pixel 10 Pro (a group where I'm the only member).
-- Exported on 28/10/2026 with Export chat → Without media → Drive → downloaded to
-  C:\Users\eladr\Downloads\WhatsApp Chat with Me - recipes.zip
-  (in WSL: /mnt/c/Users/eladr/Downloads/). It has 85 links (84 Instagram + 1 Facebook); the last one is from 23/10/2026.
-  It also had 6 photos, which were not exported.
-- Instagram captions: curl -sL -A &quot;Twitterbot/1.0&quot; &lt;reel url&gt;. The og:title and og:description meta tags hold the full caption.
-  Normal browser user agents don't get it.
-- Reading a video-only reel: download it with yt-dlp, transcribe the audio with faster-whisper (model &quot;medium&quot;, CPU),
-  and look at frame sheets (ffmpeg fps=2/3,scale=360:-1,tile=3x2) for on-screen text. Install both into a venv with uv.
-  If Instagram rate-limits the PC (429 or redirect to login), the phone's Instagram app can save a reel:
-  Share &gt; swipe the bottom row &gt; Download. It saves to Movies/Instagram; delete it afterwards (ask me first).
-- When a caption had no recipe (&quot;comment RECIPE&quot;, &quot;link in bio&quot;), the recipe came from the creator's own website.
-  If nothing was written anywhere, the file says so, and sometimes adds a clearly labeled &quot;Similar recipe (from another source)&quot;.
-  RULE: never invent ingredients, amounts or steps. Translate non-English recipes to English.
-
-TO ADD NEW RECIPES
-- I'll either paste the new links, or ask you to export the group again.
-- Skip links already in me-recipes.md: match on the reel code in the URL, e.g. /reel/DYiT21XPmHh/.
-
-PHONE SAFETY (only if you need the phone)
-- adb: /mnt/c/Users/eladr/platform-tools-dl/platform-tools/adb.exe (USB debugging must be on).
-- Before every tap, check that `dumpsys window | grep mFocusedApp` shows the expected app.
-  Another Claude session may be using the phone at the same time.
-- In WhatsApp, &quot;Export chat&quot; sits right under &quot;Clear chat&quot;. Tap the exact bounds from a uiautomator dump.
-- In the share sheet, NEVER tap the top row of contacts. Only use Drive with my own account.
-- Ask me before anything that changes or deletes data on the phone.
-- Delete /sdcard/ui_tmp.xml when you're done.
-- Drive on the phone uploads over Wi-Fi only, so uploads pause on mobile data.
-
-OPEN ITEMS / IDEAS
-- No-Bake Tofu Protein Cheesecake (in my top 5): the steps are missing. The caption credits an original by @run2food; maybe find that.
-- The 13 🟨 partial and 20 📹 video-only recipes could be completed from other sources, clearly labeled.
-- &quot;Would you try?&quot; (@officiallyemil) is still unidentified.
-- Maybe: a shopping list per recipe, or a weekly plan for protein desserts.
-
-ABOUT ME
-- I prefer the simplest recipes first, and I'm focused on protein desserts.
-- Keep answers short; I often ask for a TLDR.
+<p>Open Claude Code in <code>/home/elad/repos/cld/phone_fix</code>. It reads <code>CLAUDE.md</code> in that folder automatically: the file format, the markers, the sourcing rules, how to add recipes and update the phone app, and the phone-safety rules. You don't need to paste anything.</p>
+<p>Then just say what you want, for example:</p>
+<pre><code class="language-text">Add these recipes to the right place: &lt;paste the links&gt;
+</code></pre>
+<pre><code class="language-text">Export my WhatsApp group &quot;Me - recipes&quot; again and add any new links.
 </code></pre>
 </section>
 <section class="recipe" id="r-four-ingredient-twix-bars"><h1>4-Ingredient Twix Bars</h1>
